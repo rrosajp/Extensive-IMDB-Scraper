@@ -41,13 +41,15 @@ import json
 import regex as re
 headers = {'headers': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36'}
 
-url = 'https://www.imdb.com/title/tt1954470/'
+url = 'https://www.imdb.com/title/tt2637294/'
 page = requests.get(url)
 xpage = str(page)
 soup = BeautifulSoup(page.text, 'html.parser')
 lname = soup.find('title')
 ldirector = soup.find(class_='credit_summary_item')
+lrating = soup.find(class_='ratingValue')
 ldate = soup.find(class_='title_wrapper')
+director_list = soup.find(class_='credit_summary_item')
 
 director = ldirector.find_all('a')
 date = ldate.find_all('a')
