@@ -4,21 +4,21 @@
 # Last  : 10 March 2019
 #########################################################
 # Loading...                                      
-# ======>                                           12 %
+# ======>                                           28 %
 #########################################################
-# Movie name 		          - Done
-# Year 				            - Done
-# Genre 			
-# Release Date 		        - Done
+# Movie name                    - Done
+# Year                          - Done
+# Genre                         - Done 			
+# Release Date                  - Done
 # Duration 			
 # Rating 			
 # Reviewer count 	
-# Director 			          - Done
+# Director                      - Done
 # Writer
 # User Rev Count
 # Critic Rev Count
-# Wins				
-# Nominations		
+# Wins                          - Done				
+# Nominations                   - Done		
 # Certificate		
 # Language			
 # Country			
@@ -50,14 +50,24 @@ ldirector = soup.find(class_='credit_summary_item')
 lrating = soup.find(class_='ratingValue')
 ldate = soup.find(class_='title_wrapper')
 director_list = soup.find(class_='credit_summary_item')
+lgenre = soup.find(class_='subtext')
 
 director = ldirector.find_all('a')
 date = ldate.find_all('a')
+genre = lgenre.find_all('a')
 
 # Create for loop to print out all content
 
 for i in director:
     tdirector = i.contents[0]
+   
+for i in genre:
+    tgenre = i.contents[0]
 
 for i in date:
     rdate = i.contents[0]
+
+awards_list = soup.find(class_='awards-blurb')
+tawards = awards_list.contents[0].split()   
+wins = tawards[0]
+nominations = tawards[3]
