@@ -43,7 +43,7 @@ import json
 import regex as re
 headers = {'headers': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36'}
 
-url = 'https://www.imdb.com/title/tt0310281/'
+url = 'https://www.imdb.com/title/tt0075148/'
 page = requests.get(url)
 xpage = str(page)
 soup = BeautifulSoup(page.text, 'html.parser')
@@ -89,8 +89,9 @@ if sawl.find('nomination') != -1:
 	nominations = re.findall(r'\d+',sawl[pnom-8:pnom])"""
 
 #print(rank,oscars, wins, nominations)
-print (both)
-
+q = soup.findAll('b',"awards-blurb", class_="article highlighted")
+print(q)
+			
 """
 for i in awards_list:
 	print(i)
@@ -99,7 +100,7 @@ for i in awards_list:
 p = str(soup.find('script', {'type':'application/ld+json'}))
 intp = p.find('duration')+14
 ldur = p[intp:intp+4]
-x = re.findall(r'\d+',ldur)
+x = re.findall(r'\d+', ldur)
 dur = 60*int(x[0])+int(x[1])
 """
 
@@ -120,7 +121,7 @@ for h4 in lll:
 	for text in h4:
 		x = h4.find_next_siblings()
 		for txt in x:
-			print(text,txt.contents)
+			#print(text,txt.contents)
 			if text == 'Genres:':
 				if len(str(txt.contents))>5:
 					genre.append(str(txt.contents)[3:-2])
@@ -156,7 +157,7 @@ for h4 in lll:
 				if len(str(txt.contents))>5:
 					duration.append(str(txt.contents)[2:-2])
 				#color = color[0]
-print(duration)
+#print(duration)
 			
 """
 for h4 in lll:
@@ -198,7 +199,7 @@ day = rdate.strip().split()[0]
 month = rdate.strip().split()[1]
 year = rdate.strip().split()[2]
 
-
+"""
 print (name)
 print (rank)
 print (oscars)
@@ -219,3 +220,4 @@ print (language)
 print (color)
 print(duration)
 
+"""
