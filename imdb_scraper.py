@@ -33,7 +33,19 @@
 # Rating Demographics
 # Summary
 # Keywords
-
+# Tech spec https://www.imdb.com/title/tt0468569/technical?ref_=tt_dt_spec
+# Filming Prod https://www.imdb.com/title/tt0468569/locations?ref_=ttspec_ql_5
+# Company credits https://www.imdb.com/title/tt0468569/companycredits?ref_=ttloc_ql_4
+# External site https://www.imdb.com/title/tt0468569/externalsites?ref_=ttco_ql_3
+# Release dates https://www.imdb.com/title/tt0468569/releaseinfo?ref_=tt_ql_2
+# Cast https://www.imdb.com/title/tt0468569/fullcredits?ref_=ttrel_ql_1
+# Plot keywords https://www.imdb.com/title/tt0468569/keywords?ref_=ttpl_ql_4
+# Parents Guide https://www.imdb.com/title/tt0468569/parentalguide?ref_=tttg_ql_5
+# Connections https://www.imdb.com/title/tt0468569/movieconnections?ref_=ttalt_ql_6
+# Soundtracks https://www.imdb.com/title/tt0468569/soundtrack?ref_=ttcnn_ql_7
+# Awards https://www.imdb.com/title/tt0468569/awards?ref_=ttsnd_ql_op_1
+# Ratings https://www.imdb.com/title/tt0468569/ratings?ref_=tturv_ql_4
+# Metacritic https://www.imdb.com/title/tt0468569/criticreviews?ref_=ttexrv_ql_6
 
 import requests
 from bs4 import BeautifulSoup
