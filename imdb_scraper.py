@@ -55,10 +55,37 @@ import json
 import regex as re
 headers = {'headers': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36'}
 
+url_metac = 'https://www.imdb.com/title/tt3460252/criticreviews?ref_=ttexrv_ql_6'
 url = 'https://www.imdb.com/title/tt0075148/'
+tspec = 'technical?ref_=tt_dt_spec'
+fprod = 'locations?ref_=ttspec_ql_5'
+ccred = 'companycredits?ref_=ttloc_ql_4'
+esite = 'externalsites?ref_=ttco_ql_3'
+rdate = 'releaseinfo?ref_=tt_ql_2'
+cast = 'fullcredits?ref_=ttrel_ql_1'
+keyw = 'keywords?ref_=ttpl_ql_4'
+guide = 'parentalguide?ref_=tttg_ql_5'
+conn = 'movieconnections?ref_=ttalt_ql_6'
+sound = 'soundtrack?ref_=ttcnn_ql_7'
+awa = 'awards?ref_=ttsnd_ql_op_1'
+ratg = 'ratings?ref_=tturv_ql_4'
+metac = 'criticreviews?ref_=ttexrv_ql_6'
+p = 1
+
+page_metac = requests.get(url_metac)
+xpage_metac = str(page_metac)
+soup_metac = BeautifulSoup(page_metac.text, 'html.parser')
+ex = soup_metac.find(class_ = 'metascore_block')
+x = re.findall(r'\d+',str(ex))
+print(x[0],x[3])
+
+
+
+
 page = requests.get(url)
 xpage = str(page)
 soup = BeautifulSoup(page.text, 'html.parser')
+
 lname = soup.find('title')
 #lgenre = soup.find(class_='subtext')
 ldirector = soup.find(class_='credit_summary_item')
@@ -66,6 +93,7 @@ awards_list = soup.find(class_='article highlighted')
 lrating = soup.find(class_='ratingValue')
 ldate = soup.find(class_='title_wrapper')
 director_list = soup.find(class_='credit_summary_item')
+
 
 
 sawl = str(awards_list).split()
@@ -87,7 +115,7 @@ if sawl.find('Top Rated Movie') != -1:
 	
 if sawl.find('awards-blurb') != -1:
 	pwin = sawl.find('awards-blurb')
-	print(sawl[pwin-100:pwin+120])
+	#print(sawl[pwin-100:pwin+120])
 	both = re.findall(r'\d+',sawl[pwin-100:pwin+120])
 	if len(both) == 2:
 		wins = both[0]
@@ -102,7 +130,7 @@ if sawl.find('nomination') != -1:
 
 #print(rank,oscars, wins, nominations)
 q = soup.findAll('b',"awards-blurb", class_="article highlighted")
-print(q)
+#print(q)
 			
 """
 for i in awards_list:
