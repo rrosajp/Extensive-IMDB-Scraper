@@ -57,19 +57,19 @@ headers = {'headers': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebK
 
 url_metac = 'https://www.imdb.com/title/tt3460252/criticreviews?ref_=ttexrv_ql_6'
 url = 'https://www.imdb.com/title/tt0075148/'
-tspec = 'technical?ref_=tt_dt_spec'
-fprod = 'locations?ref_=ttspec_ql_5'
-ccred = 'companycredits?ref_=ttloc_ql_4'
-esite = 'externalsites?ref_=ttco_ql_3'
-rdate = 'releaseinfo?ref_=tt_ql_2'
-cast = 'fullcredits?ref_=ttrel_ql_1'
-keyw = 'keywords?ref_=ttpl_ql_4'
-guide = 'parentalguide?ref_=tttg_ql_5'
-conn = 'movieconnections?ref_=ttalt_ql_6'
-sound = 'soundtrack?ref_=ttcnn_ql_7'
-awa = 'awards?ref_=ttsnd_ql_op_1'
-ratg = 'ratings?ref_=tturv_ql_4'
-metac = 'criticreviews?ref_=ttexrv_ql_6'
+tspec = '/technical?ref_=tt_dt_spec'
+fprod = '/locations?ref_=ttspec_ql_5'
+ccred = '/companycredits?ref_=ttloc_ql_4'
+esite = '/externalsites?ref_=ttco_ql_3'
+rdate = '/releaseinfo?ref_=tt_ql_2'
+cast = '/fullcredits?ref_=ttrel_ql_1'
+keyw = '/keywords?ref_=ttpl_ql_4'
+guide = '/parentalguide?ref_=tttg_ql_5'
+conn = '/movieconnections?ref_=ttalt_ql_6'
+sound = '/soundtrack?ref_=ttcnn_ql_7'
+awa = '/awards?ref_=ttsnd_ql_op_1'
+ratg = '/ratings?ref_=tturv_ql_4'
+metac = '/criticreviews?ref_=ttexrv_ql_6'
 p = 1
 
 page_metac = requests.get(url_metac)
@@ -79,8 +79,11 @@ ex = soup_metac.find(class_ = 'metascore_block')
 x = re.findall(r'\d+',str(ex))
 print(x[0],x[3])
 
-
-
+url_tspec = 'https://www.imdb.com/title/tt3460252'+tspec
+page_metac = requests.get(url_tspec)
+soup_metac = BeautifulSoup(page_metac.text, 'html.parser')
+ex = soup_metac.find("label",class_ = 'dataTable labelValueTable')
+print(ex)
 
 page = requests.get(url)
 xpage = str(page)
