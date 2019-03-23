@@ -77,12 +77,18 @@ xpage_metac = str(page_metac)
 soup_metac = BeautifulSoup(page_metac.text, 'html.parser')
 ex = soup_metac.find(class_ = 'metascore_block')
 x = re.findall(r'\d+',str(ex))
-print(x[0],x[3])
+#print(x[0],x[3])
 
 url_tspec = 'https://www.imdb.com/title/tt3460252'+tspec
 page_metac = requests.get(url_tspec)
 soup_metac = BeautifulSoup(page_metac.text, 'html.parser')
 ex = soup_metac.find("label",class_ = 'dataTable labelValueTable')
+#print(ex)
+
+url_fprod = 'https://www.imdb.com/title/tt3460252'+fprod
+page_metac = requests.get(url_fprod)
+soup_metac = BeautifulSoup(page_metac.text, 'html.parser')
+ex = soup_metac.find(class_ = 'article listo')
 print(ex)
 
 page = requests.get(url)
