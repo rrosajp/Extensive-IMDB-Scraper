@@ -89,6 +89,18 @@ url_fprod = 'https://www.imdb.com/title/tt3460252'+fprod
 page_metac = requests.get(url_fprod)
 soup_metac = BeautifulSoup(page_metac.text, 'html.parser')
 ex = soup_metac.find(class_ = 'article listo')
+#print(ex)
+
+url_ccred = 'https://www.imdb.com/title/tt3460252'+ccred
+page_metac = requests.get(url_ccred)
+soup_metac = BeautifulSoup(page_metac.text, 'html.parser')
+ex = soup_metac.find(class_ = 'article listo')
+#print(ex)
+
+url_esite = 'https://www.imdb.com/title/tt3460252'+esite
+page_metac = requests.get(url_esite)
+soup_metac = BeautifulSoup(page_metac.text, 'html.parser')
+ex = soup_metac.find(class_ = 'article listo')
 print(ex)
 
 page = requests.get(url)
