@@ -79,6 +79,13 @@ ex = soup_metac.find(class_ = 'metascore_block')
 x = re.findall(r'\d+',str(ex))
 #print(x[0],x[3])
 
+page_metac = requests.get(url_metac)
+xpage_metac = str(page_metac)
+soup_metac = BeautifulSoup(page_metac.text, 'html.parser')
+ex = soup_metac.find(class_ = 'metascore_block')
+x = re.findall(r'\d+',str(ex))
+#print(x[0],x[3])
+
 url_tspec = 'https://www.imdb.com/title/tt3460252'+tspec
 page_metac = requests.get(url_tspec)
 soup_metac = BeautifulSoup(page_metac.text, 'html.parser')
@@ -99,6 +106,18 @@ ex = soup_metac.find(class_ = 'article listo')
 
 url_esite = 'https://www.imdb.com/title/tt3460252'+esite
 page_metac = requests.get(url_esite)
+soup_metac = BeautifulSoup(page_metac.text, 'html.parser')
+ex = soup_metac.find(class_ = 'article listo')
+#print(ex)
+
+url_rdate = 'https://www.imdb.com/title/tt3460252'+rdate
+page_rdate = requests.get(url_rdate)
+soup_metac = BeautifulSoup(page_rdate.text, 'html.parser')
+ex = soup_metac.find(class_ = 'article listo')
+#print(ex)
+
+url_cast = 'https://www.imdb.com/title/tt3460252'+cast
+page_metac = requests.get(url_cast)
 soup_metac = BeautifulSoup(page_metac.text, 'html.parser')
 ex = soup_metac.find(class_ = 'article listo')
 print(ex)
