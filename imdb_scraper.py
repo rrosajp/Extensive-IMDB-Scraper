@@ -128,6 +128,12 @@ soup_metac = BeautifulSoup(page_metac.text, 'html.parser')
 ex = soup_metac.find(class_ = 'article listo')
 print(ex)
 
+url_guide = 'https://www.imdb.com/title/tt3460252'+guide
+page_metac = requests.get(url_guide)
+soup_metac = BeautifulSoup(page_metac.text, 'html.parser')
+ex = soup_metac.find(class_ = 'article listo')
+print(ex)
+
 page = requests.get(url)
 xpage = str(page)
 soup = BeautifulSoup(page.text, 'html.parser')
